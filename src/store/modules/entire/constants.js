@@ -1,0 +1,1 @@
+export const TYPE1 = 'type1'
