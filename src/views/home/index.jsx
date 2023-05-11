@@ -8,8 +8,9 @@ import { fetchHomeDataAction } from '@/store/modules/home'
 import SectionRooms from '@/components/section-rooms'
 
 const Home = memo(() => {
-  const { goodPriceInfo } = useSelector((state) => ({
-    goodPriceInfo: state.home.goodPriceInfo
+  const { goodPriceInfo, highScoreInfo } = useSelector((state) => ({
+    goodPriceInfo: state.home.goodPriceInfo,
+    highScoreInfo: state.home.highScoreInfo
   }), shallowEqual)
   
   const dispatch = useDispatch()
@@ -21,14 +22,16 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        {
-          goodPriceInfo.title && (
-            <div className='good-price'>
-              <SectionHeader title={goodPriceInfo.title} />
-              <SectionRooms roomList={goodPriceInfo} />
-            </div>
-          )
-        }
+        {/* 高分好评房源 */}
+        <div className='high-score'>
+          <SectionHeader title={highScoreInfo?.title} subtitle={highScoreInfo?.subtitle} />
+          <SectionRooms roomList={highScoreInfo?.list} />
+        </div>
+        {/* 高性价比房源 */}
+        <div className='good-price'>
+          <SectionHeader title={goodPriceInfo?.title} />
+          <SectionRooms roomList={goodPriceInfo?.list} />
+        </div>
       </div>
     </HomeWrapper>
   )
