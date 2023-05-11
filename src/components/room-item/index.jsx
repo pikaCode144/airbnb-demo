@@ -5,13 +5,17 @@ import { Rate } from 'antd'
 import { ItemWrapper } from './style'
 
 const RoomItem = memo((props) => {
-  const { itemData } = props
+  const { itemData, itemCount } = props
   
   return (
     <ItemWrapper
       verifyColor={itemData.verify_info.text_color || '#39576a'}
       starRantingColor={itemData.star_rating_color || '#00848a'}
-      bottomInfo={{ contentColor: itemData.bottom_info?.content_color || '#767676', fontSize: itemData.bottom_info?.font_size || '10' }}
+      bottomInfo={{
+        contentColor: itemData.bottom_info?.content_color || '#767676',
+        fontSize: itemData.bottom_info?.font_size || '10'
+      }}
+      itemWidth={100 / (itemCount || 4) + '%'}
     >
       <div className="inner">
         <div className="cover">
@@ -35,7 +39,8 @@ const RoomItem = memo((props) => {
 })
 
 RoomItem.propTypes = {
-  itemData: PropTypes.object
+  itemData: PropTypes.object,
+  itemCount: PropTypes.number
 }
 
 export default RoomItem
