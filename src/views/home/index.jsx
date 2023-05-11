@@ -9,10 +9,11 @@ import HomeSectionV2 from './c-cpns/home-section-v2'
 import { isEmptyO } from '@/utils'
 
 const Home = memo(() => {
-  const { goodPriceInfo, highScoreInfo, discountInfo } = useSelector((state) => ({
+  const { goodPriceInfo, highScoreInfo, discountInfo, hotRecommendInfo } = useSelector((state) => ({
     goodPriceInfo: state.home.goodPriceInfo,
     highScoreInfo: state.home.highScoreInfo,
-    discountInfo: state.home.discountInfo
+    discountInfo: state.home.discountInfo,
+    hotRecommendInfo: state.home.hotRecommendInfo
   }), shallowEqual)
 
   const dispatch = useDispatch()
@@ -26,6 +27,9 @@ const Home = memo(() => {
       <div className="content">
         {/* 折扣数据 */}
         { isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo} /> }
+
+        {/* 热门推荐 */}
+        { isEmptyO(hotRecommendInfo) && <HomeSectionV2 infoData={hotRecommendInfo} /> }
 
         {/* 高分好评 */}
         { isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo} /> }
