@@ -7,13 +7,21 @@ import { fetchHomeDataAction } from '@/store/modules/home'
 import HomeSectionV1 from './c-cpns/home-section-v1'
 import HomeSectionV2 from './c-cpns/home-section-v2'
 import { isEmptyO } from '@/utils'
+import HomeLongfor from './c-cpns/home-longfor'
 
 const Home = memo(() => {
-  const { goodPriceInfo, highScoreInfo, discountInfo, hotRecommendInfo } = useSelector((state) => ({
+  const {
+    goodPriceInfo,
+    highScoreInfo,
+    discountInfo,
+    hotRecommendInfo,
+    longforInfo
+  } = useSelector((state) => ({
     goodPriceInfo: state.home.goodPriceInfo,
     highScoreInfo: state.home.highScoreInfo,
     discountInfo: state.home.discountInfo,
-    hotRecommendInfo: state.home.hotRecommendInfo
+    hotRecommendInfo: state.home.hotRecommendInfo,
+    longforInfo: state.home.longforInfo
   }), shallowEqual)
 
   const dispatch = useDispatch()
@@ -30,6 +38,9 @@ const Home = memo(() => {
 
         {/* 热门推荐 */}
         { isEmptyO(hotRecommendInfo) && <HomeSectionV2 infoData={hotRecommendInfo} /> }
+
+        {/* 你可能想去 */}
+        { isEmptyO(longforInfo) && <HomeLongfor infoData={longforInfo} /> }
 
         {/* 高分好评 */}
         { isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo} /> }
