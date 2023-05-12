@@ -19,3 +19,7 @@ export function getHomeHotRecommendData() {
 export function getHomeLongforData() {
   return request.get('/home/longfor')
 }
+
+export function getHomePlusData() {
+  return request.get('/home/plus')
+}

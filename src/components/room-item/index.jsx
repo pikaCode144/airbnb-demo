@@ -9,7 +9,7 @@ const RoomItem = memo((props) => {
   
   return (
     <ItemWrapper
-      verifyColor={itemData.verify_info.text_color || '#39576a'}
+      verifyColor={itemData.verify_info?.text_color || '#39576a'}
       starRantingColor={itemData.star_rating_color || '#00848a'}
       bottomInfo={{
         contentColor: itemData.bottom_info?.content_color || '#767676',
@@ -21,7 +21,7 @@ const RoomItem = memo((props) => {
         <div className="cover">
           <img src={itemData.picture_url} alt='' />
         </div>
-        <div className="desc">{itemData.verify_info.messages[0] + '·' + itemData.verify_info.messages[1]}</div>
+        <div className="desc">{itemData.verify_info?.messages[0] + '·' + itemData.verify_info?.messages[1]}</div>
         <div className="name">{itemData.name}</div>
         <div className="price">{`￥${itemData.price}/晚`}</div>
         <div className="bottom">
