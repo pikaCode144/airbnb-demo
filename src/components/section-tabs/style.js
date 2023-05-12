@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export const TabsWrapper = styled.div`
-  display: flex;
   padding: 8px 0;
 
   .item {
