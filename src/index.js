@@ -14,14 +14,14 @@ import { theme } from './assets/theme'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   // <React.StrictMode>
-    <Suspense fallback="loading">
-      <HashRouter>
-        <Provider store={store}>
-          <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <Suspense fallback="loading">
+        <ThemeProvider theme={theme}>
+          <HashRouter>
             <App />
-          </ThemeProvider>
-        </Provider>
-      </HashRouter>
-    </Suspense>
+          </HashRouter>
+        </ThemeProvider>
+      </Suspense>
+    </Provider>
   // </React.StrictMode>
 )

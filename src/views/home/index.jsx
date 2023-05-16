@@ -9,6 +9,8 @@ import HomeSectionV2 from './c-cpns/home-section-v2'
 import { isEmptyO } from '@/utils'
 import HomeLongfor from './c-cpns/home-longfor'
 import HomeSectionV3 from './c-cpns/home-section-v3'
+import { changeHeaderConfigAction } from '@/store/modules/main'
+// import AppHeader from '@/components/app-header'
 
 const Home = memo(() => {
   const {
@@ -30,10 +32,12 @@ const Home = memo(() => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchHomeDataAction())
+    dispatch(changeHeaderConfigAction({ isFixed: true, topAlpha: true }))
   }, [dispatch])
   
   return (
     <HomeWrapper>
+      {/* <AppHeader /> */}
       <HomeBanner />
       <div className="content">
         {/* 折扣数据 */}
