@@ -4,7 +4,7 @@ import { BannerWrapper } from './style'
 
 const HomeBanner = memo(() => {
   return (
-    <BannerWrapper>HomeBanner</BannerWrapper>
+    <BannerWrapper></BannerWrapper>
   )
 })
 
